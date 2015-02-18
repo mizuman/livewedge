@@ -1,8 +1,39 @@
 body {
-  padding: 50px;
+  /*padding: 50px;*/
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
 }
 
 a {
   color: #00B7FF;
+}
+
+#list {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	width: 100px;
+	height: 50px;
+	margin: 0;
+}
+
+.tweet {
+	position: absolute;
+	bottom: 50px;
+	white-space: nowrap;
+	left: 100px;
+	color: #fff;
+}
+
+.stream {
+	-webkit-transition: all 25s linear;
+	   -moz-transition: all 25s linear;
+	    -ms-transition: all 25s linear;
+	     -o-transition: all 25s linear;
+	        transition: all 25s linear;
+	-webkit-transform: translate3d(-5000px, 0,0);
+	   -moz-transform: translate3d(-5000px, 0,0);
+	    -ms-transform: translate3d(-5000px, 0,0);
+	     -o-transform: translate3d(-5000px, 0,0);
+	        transform: translate3d(-5000px, 0,0);
 }

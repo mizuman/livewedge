@@ -40,6 +40,12 @@ if ('development' == app.get('env')) {
 app.get('/', function(req, res) {
 	res.render('index', { locals: { port: app.get('port') } });
 });
+app.get('/stream', function(req, res) {
+	res.render('stream', { locals: { port: app.get('port') } });
+});
+app.get('/bubble', function(req, res) {
+	res.render('bubble', { locals: { port: app.get('port') } });
+});
 app.get('/users', user.list);
 
 
@@ -58,7 +64,7 @@ io.sockets.on('connection', function(socket) {
 	});
 
 	socket.on('twitter', function(data) {
-			io.sockets.emit('msg', {text:data});
+			io.sockets.emit('msg', data);
 	});
 
 	socket.on('disconnect', function() {
@@ -72,7 +78,7 @@ console.log(keyword+'を含むツイートを取得します。');
 
 twit.stream('statuses/filter', option, function(stream) {
 	stream.on('data', function (data) {
-		io.sockets.emit('twitter', {text: data.text, img: data.user.profile_image_url});
+		io.sockets.emit('twitter', {text: data.text, img: data.user.profile_image_url, name: data.user.screen_name});
 		console.log(data);
 	});
 });

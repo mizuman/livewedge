@@ -11,12 +11,12 @@ $(function() {
 
     socket.on('message', function(msg) {
         // msgStream({text: msg});
+        msgBubble({text: msg, name: "guest"});
     });
 
     socket.on('twitter', function(data) {
         // msgStream(data);
         msgBubble(data);
-        console.log(data)
     });
 
     socket.on('disconnect', function() {
